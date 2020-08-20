@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reto 1 POO</title>
+</head>
+<body>
+    <h1>Reto 1 para el curso de programación orientada objetos</h1>
+    <br>
+    <br>
+    <h3>Instrucciones</h3>
+    <p>Crea una cuenta usando tu nombre y el valor que quieras asignar</p><br>
+    <input type="text" name="Nombre" id="Titular" placeholder="Escribe tu nombre aquí">
+    <input type="number" name="Cantidad" id="CantidadOr" placeholder="Escribe el monto inicial aquí">
+    <button onclick="btnBienvenidaHandler()" id="btnBienvenida">Crear cuenta</button>
+    <br>
+    <div id="ResBienvenida"></div>
+    <br>
+    <br>
+    <p>Ingresa el valor que quieras consignar</p><br>
+    <input type="number" name="Ingreso" id="CantIngreso" placeholder="Monto a consignar">
+    <button onclick="ingresar()" id="btnIngresar">Consignar</button>
+    <br>
+    <br>
+    <div id="ResConsig"></div>
+
+    <p>Ingresa el valor que quieras retirar</p><br>
+    <input type="number" name="Retiro" id="cantRetiro" placeholder="Monto a retirar">
+    <button onclick="btnRetiroHandler()" id="btnRetiro">Retirar</button>
+    <br>
+    <div id="ResRetiro"></div>
+    <br>
+    <br>
+
+
+    <script src="./index.js"></script>
+    <!-- <script src="./ejecutable.js"></script> -->
+</body>
+</html>
