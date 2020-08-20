@@ -16,16 +16,18 @@ class Cuenta {
     };
 
     ingresar(cantIngreso){
-        cantIngreso = parseFloat(document.getElementById("cantIngreso").value);
+        cantIngreso = Number(document.getElementById("cantIngreso").value);
         if (Math.sign(cantIngreso)===1) {
-            suma = Number(Cuenta.cantidad)+Number(cantIngreso);
-            Cuenta.setCantidad= suma
+            this.cantidad = this.cantidad+cantIngreso;
 
-            let texto = `<p> Hola ${Cuenta.titular}. Tienes ${Cuenta.cantidad} en tu cuenta. </p>`;
+            const ingreso__Answer_paragraph = document.createElement("p");
+            ingreso__Answer_paragraph.innerHTML= `${this.titular} afortunadamente tienes ${this.cantidad}`;
+            document.getElementById("ResIngreso").appendChild(ingreso__Answer_paragraph);
         } else {
-            let texto = `<p> Hola ${Cuenta.titular}. Ese número no cuadra. ¿Será que quieres retirar?</p>`;
+            const ingreso__Answer_paragraph = document.createElement("p");
+            ingreso__Answer_paragraph.innerHTML= `Ese número no cuadra. ¿Será que quieres retirar?`;
+            document.getElementById("ResIngreso").appendChild(ingreso__Answer_paragraph);
         }
-        return document.getElementById("ResConsig").appendChild(texto);
     };
 
     retirar(cantRetiro){
@@ -58,20 +60,14 @@ function btnBienvenidaHandler(titular, cantidad){
     var space__Answer_paragraph = document.createElement("p");
     document.getElementById("ResBienvenida").appendChild(space__Answer_paragraph);
     space__Answer_paragraph.innerHTML= `Bienvenid@ ${cuentita.titular} tu nueva cuenta tiene ${cuentita.cantidad}`;
-    console.log(cuentita);
-
 };
+
+function btnIngresarHandler(){
+    var cantIngreso = Number(document.getElementById("cantIngreso").value);
+    return cuentita.ingresar(cantIngreso);
+}
 
 function btnRetiroHandler(){
     var cantRetiro = document.getElementById("cantRetiro").value;
     return cuentita.retirar(cantRetiro);
 }
-
-/* function btnRetiroHandler(cantRetiro){
-    var cantRetiro = document.getElementById("cantRetiro").value;
-    var space__Answer_retiro = document.createElement("p");
-
-    space__Answer_paragraph.innerHTML= `Hola ${titular} tu cuenta tiene ${cantidad}`;
-    document.getElementById("ResRetiro").appendChild(space__Answer_paragraph);
-    return space__Answer_retiro.innerHTML=
-}; */
