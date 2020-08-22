@@ -1,19 +1,31 @@
-class Ejecutable extends Cuenta {
+/* class Ejecutable extends Cuenta {
     constructor (cuenta, ejecutable){
         super(cuenta);
         this.ejecutable=ejecutable;
     }
-}
 
-titular = document.getElementById("Titular").value;
-cantidad = Number(document.getElementById("CantidadOr").value);
-cantIngreso = document.getElementById("cantIngreso").value;
-cantRetiro = Number(document.getElementById("cantRetiro").value);
+    let cuentita = null;
 
-function btnBienvenidaHandler(){
-    var space__Answer_paragraph = document.createElement("p");
+    function btnBienvenidaHandler(titular, cantidad){
+        var titular = document.getElementById("Titular").value;
+        var cantidad = Number(document.getElementById("CantidadOr").value);
 
-    space__Answer_paragraph.innerHTML= `Bienvenid@ ${Ejecutable.titular} tu nueva cuenta tiene ${Ejecutable.cantidad}`;
+        cuentita = new Cuenta(titular, cantidad);
 
-    document.getElementById("ResBienvenida").appendChild(space__Answer_paragraph);
-}
+        var space__Answer_paragraph = document.createElement("p");
+        document.getElementById("ResBienvenida").appendChild(space__Answer_paragraph);
+        space__Answer_paragraph.innerHTML= `Bienvenid@ ${cuentita.titular} tu nueva cuenta tiene ${cuentita.cantidad}`;
+    };
+
+    function btnIngresarHandler(){
+        var cantIngreso = Number(document.getElementById("cantIngreso").value);
+        return cuentita.ingresar(cantIngreso);
+    }
+
+    function btnRetiroHandler(){
+        var cantRetiro = document.getElementById("cantRetiro").value;
+        return cuentita.retirar(cantRetiro);
+    }
+
+
+} */

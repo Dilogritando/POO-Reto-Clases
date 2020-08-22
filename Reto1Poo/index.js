@@ -1,27 +1,26 @@
 class Cuenta {
-    constructor (titular, cantidad) {
+    constructor (Nombre, Numero) {
+        this.state={ titular: Nombre, cantidad: Numero }
+/*
         this.titular = titular;
-        this.cantidad = cantidad;
-        if (typeof cantidad === 'undefined'){
-            cantidad = 0;
-        }
+        this.cantidad = cantidad; */
     };
 
-    getCantidad(){
-        return this.cantidad;
+   /*  getCantidad(){
+        return this.state.cantidad;
     };
 
     setCantidad(cant){
-        this.cantidad = cant;
+        this.state.cantidad = cant;
     };
-
+ */
     ingresar(cantIngreso){
         cantIngreso = Number(document.getElementById("cantIngreso").value);
         if (Math.sign(cantIngreso)===1) {
-            this.cantidad = this.cantidad+cantIngreso;
+            this.state.cantidad = this.state.cantidad+cantIngreso;
 
             const ingreso__Answer_paragraph = document.createElement("p");
-            ingreso__Answer_paragraph.innerHTML= `${this.titular} afortunadamente tienes ${this.cantidad}`;
+            ingreso__Answer_paragraph.innerHTML= `${this.state.titular} afortunadamente tienes ${this.state.cantidad}`;
             document.getElementById("ResIngreso").appendChild(ingreso__Answer_paragraph);
         } else {
             const ingreso__Answer_paragraph = document.createElement("p");
@@ -32,11 +31,11 @@ class Cuenta {
 
     retirar(cantRetiro){
         cantRetiro = Number(document.getElementById("cantRetiro").value);
-        if (cantRetiro<=this.cantidad && cantRetiro>0){
-            this.cantidad = this.cantidad-cantRetiro;
+        if (cantRetiro<=this.state.cantidad && cantRetiro>0){
+            this.state.cantidad = this.state.cantidad-cantRetiro;
 
             const retiro__Answer_paragraph = document.createElement("p");
-            retiro__Answer_paragraph.innerHTML= `Tu nuevo saldo es ${this.cantidad}`;
+            retiro__Answer_paragraph.innerHTML= `Tu nuevo saldo es ${this.state.cantidad}`;
             document.getElementById("ResRetiro").appendChild(retiro__Answer_paragraph);
         } else {
             this.setCantidad(0);
@@ -59,7 +58,7 @@ function btnBienvenidaHandler(titular, cantidad){
 
     var space__Answer_paragraph = document.createElement("p");
     document.getElementById("ResBienvenida").appendChild(space__Answer_paragraph);
-    space__Answer_paragraph.innerHTML= `Bienvenid@ ${cuentita.titular} tu nueva cuenta tiene ${cuentita.cantidad}`;
+    space__Answer_paragraph.innerHTML= `Bienvenid@ ${cuentita.state.titular} tu nueva cuenta tiene ${cuentita.state.cantidad}`;
 };
 
 function btnIngresarHandler(){
